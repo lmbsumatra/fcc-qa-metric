@@ -15,13 +15,14 @@ module.exports = function (app) {
     const getReturnUnit = convertHandler.getReturnUnit(initUnit);
     const spellOutReturnUnit = convertHandler.spellOutUnit(getReturnUnit);
 
-    if (!initNum && !initUnit) {
-      return res.send("invalid number and unit");
-    } else if (!initNum) {
-      return res.send("invalid number");
-    } else if (!initUnit) {
-      return res.send("invalid unit");
-    }
+    if (initNum === undefined && initUnit === undefined) {
+  return res.send("invalid number and unit");
+} else if (initNum === undefined) {
+  return res.send("invalid number");
+} else if (initUnit === undefined) {
+  return res.send("invalid unit");
+}
+
 
     return res.send({
       initNum: initNum,
